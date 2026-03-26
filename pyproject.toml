@@ -4,4 +4,9 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "django>=6.0.3",
+    "django-browser-reload>=1.21.0",
+    "django-unfold>=0.87.0",
+    "django-watchfiles>=1.4.0",
+]
