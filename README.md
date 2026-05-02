@@ -37,7 +37,7 @@ Text Speaker IO allows users to:
 ### Core Processing Capabilities
 - Text-to-Speech (TTS)
 - Speech-to-Text (STT)
-- Text-based transformations (e.g., grammatical corrections, summarization)
+- Text-based transformations (e.g., grammatical corrections, translation, summarization)
 
 ---
 
