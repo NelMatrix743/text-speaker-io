@@ -28,6 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# custom model for user authentication
+AUTH_USER_MODEL: str = "apps.accounts.User"
+
+
 # Application definition
 
 INSTALLED_APPS = [
