@@ -28,10 +28,12 @@ erDiagram
     PLAN {
         int id PK
         string type
+        int max_number_of_input
+        int max_number_of_output
+        int max_operations_per_input
         int max_text_characters
         int max_audio_duration
         int max_video_duration
-        int max_outputs_per_task
         int feature_id FK
         boolean is_active
         datetime created_at
@@ -73,7 +75,7 @@ erDiagram
         int media_file_id FK
         string source_url
         datetime created_at
-    }
+    }a
 
     OPERATION {
         int id PK
