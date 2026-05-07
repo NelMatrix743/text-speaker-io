@@ -107,4 +107,14 @@ class Plan(md.Model):
 
 
 class Feature(md.Model):
-    pass
+    """ Represents a functionality available in a subscription plan """
+
+    name: md.CharField = md.CharField(max_length=200, unique=True)
+    code: md.CharField = md.CharField(max_length=100, unique=True)
+
+    description: md.TextField = md.TextField()
+
+    is_active: md.BooleanField = md.BooleanField(default=True)
+
+    created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
+    updated_at: md.DateTimeField = md.DateTimeField(auto_now=True)
