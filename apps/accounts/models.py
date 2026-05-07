@@ -12,6 +12,14 @@ class AccountStatus(md.TextChoices):
     CANCELLED = ("cancelled", "Cancelled")
 
 
+class PlanType(md.TextChoices):
+    """ plan type choices """
+
+    FREE = ("free", "Free")
+    STANDARD = ("standard", "Standard")
+    PRO = ("pro", "Pro")
+
+
 class User(AbstractUser):
     """ Represents an authenticated user of the platform """
     email: md.EmailField = md.EmailField(unique=True)
@@ -57,7 +65,6 @@ class Account(md.Model):
     total_input_created: md.IntegerField = md.IntegerField(default=0)
     total_operations_generated: md.IntegerField = md.IntegerField(default=0)
     total_output_generated: md.IntegerField = md.IntegerField(default=0)
-    total_storage_used: md.FloatField = md.FloatField(default=0.0)
     
     created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
     updated: md.DateTimeField = md.DateTimeField(auto_now=True)
@@ -68,4 +75,10 @@ class Account(md.Model):
 
 
 class Plan(md.Model):
-    pass
+    """ Defines subscription tiers and platform limits """
+
+    type: md.CharField = md.CharField(
+        max_length=10,
+        choices=PlanType.choices,
+        default=PlanType.FREE.value
+    )

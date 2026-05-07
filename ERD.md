@@ -32,7 +32,6 @@ erDiagram
         int total_input_created
         int total_operations_created
         int total_outputs_generated
-        int total_storage_used
         datetime created_at
         datetime updated_at
     }
