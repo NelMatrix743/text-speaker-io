@@ -28,6 +28,7 @@ erDiagram
     PLAN {
         int id PK
         string type
+        decimal price
         int max_number_of_input
         int max_number_of_output
         int max_operations_per_input
