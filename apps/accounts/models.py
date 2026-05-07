@@ -20,6 +20,7 @@ class PlanType(md.TextChoices):
     PRO = ("pro", "Pro")
 
 
+
 class User(AbstractUser):
     """ Represents an authenticated user of the platform """
     email: md.EmailField = md.EmailField(unique=True)
@@ -82,3 +83,28 @@ class Plan(md.Model):
         choices=PlanType.choices,
         default=PlanType.FREE.value
     )
+
+    price: md.DecimalField = md.DecimalField(max_digits=4, decimal_places=2)
+
+    max_number_of_input: md.IntegerField = md.IntegerField(default=0)
+    max_number_of_output: md.IntegerField = md.IntegerField(default=0)
+    max_operations_per_input: md.IntegerField = md.IntegerField(default=0)
+
+    max_text_characters: md.IntegerField = md.IntegerField(default=0)
+    max_audio_duration: md.IntegerField = md.IntegerField(default=0)
+    max_video_duration: md.IntegerField = md.IntegerField(default=0)
+
+    feature: md.ManyToManyField = md.ManyToManyField(
+        "Feature",
+        related_name="plans"
+    )
+
+    is_active: md.BooleanField = md.BooleanField(default=True)
+
+    created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
+    updated_at: md.DateTimeField = md.DateTimeField(auto_now=True)
+
+
+
+class Feature(md.Model):
+    pass
