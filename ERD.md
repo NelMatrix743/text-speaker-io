@@ -11,17 +11,6 @@ erDiagram
         datetime updated_at
     }
 
-    PLAN {
-        int id PK
-        string type
-        int max_text_length
-        int max_file_size
-        int max_audio_duration
-        int max_outputs_per_task
-        datetime created_at
-        datetime updated_at
-    }
-
     ACCOUNT {
         int id PK
         int user_id FK
@@ -34,6 +23,34 @@ erDiagram
         int total_outputs_generated
         datetime created_at
         datetime updated_at
+    }
+
+    PLAN {
+        int id PK
+        string type
+        int max_text_characters
+        int max_audio_duration
+        int max_video_duration
+        int max_outputs_per_task
+        int feature_id FK
+        boolean is_active
+        datetime created_at
+        datetime updated_at
+    }
+
+    FEATURE {
+        int id PK
+        string name
+        string code
+        string description
+        boolean is_active
+        datetime created_at
+        datetime updated_at
+    }
+
+    PLAN_FEATURE {
+        int plan_id FK
+        int feature_id FK
     }
 
     MEDIA_FILE {
@@ -83,6 +100,9 @@ erDiagram
 
     USER ||--|| ACCOUNT : has
     ACCOUNT }o--|| PLAN : subscribes_to
+
+    PLAN ||--o{ PLAN_FEATURE : has
+    FEATURE ||--o{ PLAN_FEATURE : belongs_to
 
     USER ||--o{ INPUT : creates
     INPUT }o--|| MEDIA_FILE : references
