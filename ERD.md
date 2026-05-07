@@ -75,7 +75,7 @@ erDiagram
         int media_file_id FK
         string source_url
         datetime created_at
-    }a
+    }
 
     OPERATION {
         int id PK
