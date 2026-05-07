@@ -107,11 +107,9 @@ erDiagram
     FEATURE ||--o{ PLAN_FEATURE : belongs_to
 
     USER ||--o{ INPUT : creates
-    INPUT }o--|| MEDIA_FILE : references
 
-    USER ||--o{ OPERATION : initiates
-    INPUT ||--o{ OPERATION : used_by
+    INPUT ||--o{ OPERATION : initiates
 
-    OPERATION ||--o{ OUTPUT : produces
-    OUTPUT }o--|| MEDIA_FILE : generates
+    OPERATION ||--|| OUTPUT : produces
+    OUTPUT || --|| MEDIA_FILE : generates
 ```
