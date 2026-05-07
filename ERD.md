@@ -35,7 +35,6 @@ erDiagram
         int max_text_characters
         int max_audio_duration
         int max_video_duration
-        int feature_id FK
         boolean is_active
         datetime created_at
         datetime updated_at
