@@ -81,18 +81,19 @@ class Plan(md.Model):
     type: md.CharField = md.CharField(
         max_length=10,
         choices=PlanType.choices,
-        default=PlanType.FREE.value
+        default=PlanType.FREE.value,
+        unique=True
     )
 
     price: md.DecimalField = md.DecimalField(max_digits=4, decimal_places=2)
 
-    max_number_of_input: md.IntegerField = md.IntegerField(default=0)
-    max_number_of_output: md.IntegerField = md.IntegerField(default=0)
-    max_operations_per_input: md.IntegerField = md.IntegerField(default=0)
+    max_number_of_input: md.IntegerField = md.PositiveIntegerField()
+    max_number_of_output: md.IntegerField = md.PositiveIntegerField()
+    max_operations_per_input: md.IntegerField = md.PositiveIntegerField()
 
-    max_text_characters: md.IntegerField = md.IntegerField(default=0)
-    max_audio_duration: md.IntegerField = md.IntegerField(default=0)
-    max_video_duration: md.IntegerField = md.IntegerField(default=0)
+    max_text_characters: md.IntegerField = md.PositiveIntegerField()
+    max_audio_duration: md.IntegerField = md.PositiveIntegerField()
+    max_video_duration: md.IntegerField = md.PositiveIntegerField()
 
     feature: md.ManyToManyField = md.ManyToManyField(
         "Feature",
