@@ -1,12 +1,21 @@
 from django.db import models as md
 
 
+
 class InputType(md.TextChoices):
     """ Input type choices """
 
     TEXT = ("text", "Text")
     FILE = ("file", "File")
     URL = ("url", "URL")
+
+
+class OperationStatus(md.TextChoices):
+    """ Operation status choices """
+
+    PENDING = ("pending", "Pending")
+    COMPLETED = ("completed", "Completed")
+    FAILED = ("failed", "Failed")
 
 
 class Input(md.Model):
@@ -40,7 +49,28 @@ class Input(md.Model):
 
 
 class Operation(md.Model):
-    pass
+    """ Represents a processing request performed on an input """
+
+    operation_type: md.CharField = md.CharField(
+        max_length=200
+    )
+    status: md.CharField = md.CharField(
+        max_length=100,
+        choices=OperationStatus.choices,
+        default=OperationStatus.PENDING.value
+    )
+
+    input: md.ForeignKey = md.ForeignKey(
+        "Input",
+        on_delete=md.CASCADE,
+        related_name="input"
+    )
+
+    created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.input.input_type} - {self.operation_type}"
+
 
 
 class Output(md.Model):
