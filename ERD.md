@@ -80,13 +80,10 @@ erDiagram
 
     OPERATION {
         int id PK
-        int user_id FK
         int input_id FK
         string operation_type
         string status
-        string error_message
         datetime created_at
-        datetime updated_at
     }
 
     OUTPUT {
