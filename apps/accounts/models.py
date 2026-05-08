@@ -105,6 +105,9 @@ class Plan(md.Model):
     created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
     updated_at: md.DateTimeField = md.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return f"{self.type} - {self.price}"
+
 
 
 class Feature(md.Model):
@@ -119,3 +122,6 @@ class Feature(md.Model):
 
     created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
     updated_at: md.DateTimeField = md.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.code}({self.name}): {self.description}"
