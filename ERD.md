@@ -112,4 +112,5 @@ erDiagram
 
     OPERATION ||--|| OUTPUT : produces
     OUTPUT || --|| MEDIA_FILE : generates
+    MEDIA_FILE ||--o{ INPUT : used_by
 ```
