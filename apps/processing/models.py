@@ -43,7 +43,7 @@ class Input(md.Model):
     created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
     updated_at: md.DateTimeField = md.DateTimeField(auto_now=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.user.username} - {self.input_type}"
 
 
@@ -68,7 +68,7 @@ class Operation(md.Model):
 
     created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.input.input_type} - {self.operation_type}"
 
 

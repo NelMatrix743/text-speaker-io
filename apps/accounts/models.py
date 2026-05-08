@@ -33,7 +33,7 @@ class User(AbstractUser):
         "username"
     ]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"EMAIL({self.email}); USERNAME({self.username})"
 
 
@@ -70,7 +70,7 @@ class Account(md.Model):
     created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
     updated: md.DateTimeField = md.DateTimeField(auto_now=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Account #{self.id} - {self.user}"
 
 
@@ -105,7 +105,7 @@ class Plan(md.Model):
     created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
     updated_at: md.DateTimeField = md.DateTimeField(auto_now=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.type} - {self.price}"
 
 
@@ -123,5 +123,5 @@ class Feature(md.Model):
     created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
     updated_at: md.DateTimeField = md.DateTimeField(auto_now=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.code}({self.name}): {self.description}"
