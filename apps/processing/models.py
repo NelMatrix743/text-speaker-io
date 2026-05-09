@@ -44,7 +44,8 @@ class Input(md.Model):
     source_url: md.URLField = md.URLField(max_length=200)
     media_file: md.ForeignKey = md.ForeignKey(
         "apps.media.MediaFile",
-        on_delete=md.CASCADE
+        on_delete=md.CASCADE,
+        related_name="input"
     )
 
     created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
