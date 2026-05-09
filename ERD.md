@@ -88,13 +88,12 @@ erDiagram
 
     OUTPUT {
         int id PK
-        int operation_id FK
         string output_type
-        int media_file_id FK
+        int operation_id FK
         string raw_text
-        string configuration
-        int size
-        float duration
+        int media_file_id FK
+        int text_length
+        float audio_duration
         datetime created_at
     }
 
