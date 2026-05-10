@@ -23,6 +23,7 @@ class PlanType(md.TextChoices):
 
 class User(AbstractUser):
     """ Represents an authenticated user of the platform """
+    
     email: md.EmailField = md.EmailField(unique=True)
 
     created_at: md.DateTimeField = md.DateTimeField(auto_now_add=True)
