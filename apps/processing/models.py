@@ -97,7 +97,7 @@ class Output(md.Model):
     )
 
     raw_text: md.TextField = md.TextField(null=True)
-    media_file: md.ForeignKey = md.ForeignKey(
+    media_file: md.OneToOneField = md.OneToOneField(
         "apps.media.MediaFile",
         on_delete=md.CASCADE,
         related_name="output",
