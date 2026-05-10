@@ -61,9 +61,9 @@ erDiagram
         string file_name
         string file_type
         string mime_type
+        string origin
         int size
-        float duration
-        string checksum
+        int duration
         datetime created_at
     }
 
