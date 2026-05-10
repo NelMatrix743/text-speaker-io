@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # custom model for user authentication
-AUTH_USER_MODEL: str = "apps.accounts.User"
+AUTH_USER_MODEL: str = "accounts.User"
 
 
 # Application definition
