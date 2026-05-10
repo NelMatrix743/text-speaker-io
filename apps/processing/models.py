@@ -35,7 +35,7 @@ class Input(md.Model):
     )
 
     user: md.ForeignKey = md.ForeignKey(
-        "apps.accounts.User",
+        "accounts.User",
         on_delete= md.CASCADE,
         related_name="inputs"
     )
@@ -43,7 +43,7 @@ class Input(md.Model):
     raw_text: md.TextField = md.TextField()
     source_url: md.URLField = md.URLField(max_length=200)
     media_file: md.ForeignKey = md.ForeignKey(
-        "apps.media.MediaFile",
+        "media.MediaFile",
         on_delete=md.CASCADE,
         related_name="input"
     )
@@ -98,7 +98,7 @@ class Output(md.Model):
 
     raw_text: md.TextField = md.TextField(null=True)
     media_file: md.OneToOneField = md.OneToOneField(
-        "apps.media.MediaFile",
+        "media.MediaFile",
         on_delete=md.CASCADE,
         related_name="output",
         null=True
