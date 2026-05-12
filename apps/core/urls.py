@@ -5,5 +5,6 @@ from . import views
 
 
 urlpatterns: list[URLPattern] = [
-    path('/', views.index, name='landing')
+    path('', views.index, name='landing'),
+    path("home/", views.home, name="home")
 ]
